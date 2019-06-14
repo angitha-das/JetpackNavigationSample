@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@+id/titleScreen">
+
+    <fragment
+        android:id="@+id/titleScreen"
+        android:name="com.example.android.navigationsample.Title"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/action_title_to_about"
+            app:destination="@id/aboutScreen"/>
+    </fragment>
+    <fragment
+        android:id="@+id/aboutScreen"
+        android:name="com.example.android.navigationsample.About"
+        android:label="@string/title_about"
+        tools:layout="@layout/fragment_about"/>
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.android.navigationsample.Register"
+        android:label="@string/title_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_register_to_match"
+            app:destination="@id/registered"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registered"
+        android:name="com.example.android.navigationsample.Registered"
+        android:label="Registered"
+        tools:layout="@layout/fragment_registered"/>
+    <fragment
+        android:id="@+id/leaderboard"
+        android:name="com.example.android.navigationsample.Leaderboard"
+        android:label="@string/title_list"
+        tools:layout="@layout/fragment_leaderboard">
+        <action
+            android:id="@+id/action_leaderboard_to_userProfile"
+            app:destination="@id/userProfile"/>
+    </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.example.android.navigationsample.UserProfile"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_user_profile">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.example.com/user/{userName}"/>
+        <argument
+            android:name="userName"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.android.navigationsample.SettingsFragment"
+        android:label="@string/settings_fragment_text"
+        tools:layout="@layout/settings_fragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.android.navigationsample.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
